@@ -30,7 +30,7 @@ public class App
         // Creamos nuestro pool y repartimos la carga de 10 en 10 para nuestras tres hilos
         ExecutorService executor = Executors.newFixedThreadPool(3);
         for (int i = 0; i < 10; i++) {
-            Runnable worker = new PrintArrayThread(bigArray, i, i + 10);
+            Runnable worker = new PrintArrayThread(bigArray, i, i + 10);//ver que hace
             executor.execute(worker);
         }
         executor.shutdown();
