@@ -11,13 +11,13 @@ import java.util.concurrent.*;
 public class App 
 {
     public static void main( String[] args ) throws ExecutionException, InterruptedException, TimeoutException {
-       Future1();
+      // Future1();
        Future2();
-       Future3();
+      /* Future3();
        Future4();
        Future5();
        Future6();
-       Future7();
+       Future7();*/
     }
 
     private static void Future1() throws ExecutionException, InterruptedException {
@@ -50,7 +50,7 @@ public class App
         ExecutorService executorService = Executors.newSingleThreadExecutor();
 
         Future<String> future = executorService.submit(() -> {
-            Thread.sleep(2000);
+            Thread.sleep(2_000);
             return "Hola desde Callable";
         });
 
@@ -80,7 +80,7 @@ public class App
         while(!future.isDone()) {
             System.out.println("Tarea no terminada...");
             Thread.sleep(200);
-            double elapsedTimeInSec = (System.nanoTime() - startTime)/1000000000.0;
+            double elapsedTimeInSec = (System.nanoTime() - startTime)/1_000_000_000.0;//son nanosegundos
 
             // Si pasa este determinado tiempo, la cancelamos
             if(elapsedTimeInSec > 1) {
